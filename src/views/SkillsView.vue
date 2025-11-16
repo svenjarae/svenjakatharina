@@ -8,34 +8,15 @@
       :deactivate-after-last="true"
       deactivate-after-id="cta"
     />
+
+    <!-- ✅ Special Header mit Titel, Subtitle & 3 Bildern -->
     <SpecialHeader :project="project" />
+
     <!-- ✅ Section 1: UW Filming -->
     <section id="uw-filming" class="section">
-      <SectionText
-        :section="{
-          title: 'UW Filming',
-          content:
-            'Professional underwater camera operation for science, expeditions, and any kind of media productions.',
-        }"
-      />
+      <SectionText :section="skillsData.uwFilming.text" />
       <div class="container">
-        <SectionFeatures
-          :section="{
-            title: 'Skills',
-            features: [
-              { title: 'Camera', text: 'Panasonic S1II + Nauticam housing' },
-              { title: 'Methods', text: 'Scuba & freediving' },
-              { title: 'Experience', text: '~2000 dives' },
-              { title: 'Wildlife + Interaction', text: 'Behavioral knowledge of marine species' },
-              { title: 'Safety Concepts', text: 'Buddy system & procedures' },
-              { title: 'Risk Management', text: 'Currents, depth, emergencies' },
-              {
-                title: 'Fieldwork & Research',
-                text: 'Work with camera traps, documentation, tagging projects',
-              },
-            ],
-          }"
-        />
+        <SectionFeatures :section="skillsData.uwFilming.features" />
       </div>
 
       <!-- ✅ Credits + Bild -->
@@ -46,34 +27,11 @@
 
     <!-- ✅ Section 2: Diving – kompakte Skills (3 Punkte), Slider & Credits -->
     <section id="diving" class="section">
-      <SectionText
-        :section="{
-          title: 'Diving',
-          content: 'Scuba & Apnoe',
-        }"
-      />
+      <SectionText :section="skillsData.diving.text" />
 
       <!-- 🔹 Diving Skills (max. 3 Punkte) -->
       <div class="container" style="margin-bottom: 100px">
-        <SectionFeatures
-          :section="{
-            title: 'Diving Skills',
-            features: [
-              {
-                title: 'Training & Courses (PADI)',
-                text: 'Instruction from Open Water to Divemaster, including Nitrox, Deep, Wreck, Night, DSMB, PPB & AWARE.',
-              },
-              {
-                title: 'Safety & Marine Operations',
-                text: 'On-set safety, emergency plans, O₂/first aid, risk assessments, boat/surface support & crew coordination.',
-              },
-              {
-                title: 'UW Camera & Installations',
-                text: 'Camera/rig support, lighting & shot planning; mounts/anchors, sensors & moorings for research/conservation.',
-              },
-            ],
-          }"
-        />
+        <SectionFeatures :section="skillsData.diving.features" />
       </div>
 
       <div class="container">
@@ -101,7 +59,7 @@
           </div>
         </div>
 
-        <!-- 🔘 Slider Controls -->
+        <!-- 🔘 Slider Controls (UNVERÄNDERT) -->
         <div class="slider-controls">
           <button
             class="see-more slider-btn"
@@ -154,14 +112,10 @@
         <CreditsList :items="creditsDiving" />
       </div>
     </section>
+
     <!-- ✅ Section 3 -->
     <section id="web-dev" class="section">
-      <SectionText
-        :section="{
-          title: 'Web Development',
-          content: 'Junior Software- & Webdeveloper',
-        }"
-      />
+      <SectionText :section="skillsData.webDev.text" />
 
       <div class="web-grid">
         <WebProjectCard
@@ -175,23 +129,7 @@
       </div>
 
       <div class="container">
-        <SectionFeatures
-          :section="{
-            title: 'Skills',
-            features: [
-              { title: 'Frontend Development', text: 'HTML, CSS, JS' },
-              { title: 'Backend Development', text: 'PHP, Python' },
-              { title: 'Frameworks', text: 'Vue, React, Node' },
-              { title: 'Modern PWA Development', text: 'Built with native Web Components' },
-              { title: 'CMS', text: 'Wordpress, Wix, Shopify, Elementor' },
-              { title: 'Animation', text: 'GSAP, CSS' },
-              {
-                title: 'XR, VR',
-                text: 'Next.js, A-FRAME',
-              },
-            ],
-          }"
-        />
+        <SectionFeatures :section="skillsData.webDev.features" />
       </div>
 
       <!-- ✅ Credits + Bild -->
@@ -204,9 +142,14 @@
 
 <script>
 import { ref, onMounted, onBeforeUnmount, computed, nextTick } from 'vue'
-import WebProjectCard from '@/components/card/WebProjectCard.vue'
-import { webProjects } from '@/data/projectsData.js'
+import { webProjects, skillsData } from '@/data/projectsData.js'
 
+// 🖼 Header-Bilder für Skills (direkt importiert)
+import img7spain from '@/assets/images/spain25/P1072542.jpeg'
+import scubaDiveNight from '@/assets/images/night-dive.jpeg'
+import webDevImg from '@/assets/images/website/dev.png'
+
+import WebProjectCard from '@/components/card/WebProjectCard.vue'
 import SideBar from '@/components/navigation/SideBar.vue'
 import SectionCta from '@/components/sections/SectionCta.vue'
 import SectionText from '@/components/sections/SectionText.vue'
@@ -229,74 +172,26 @@ export default {
     RoundImage,
     FullWidthSlider,
     WebProjectCard,
+    SpecialHeader,
   },
   setup() {
-    const sections = [
-      { id: 'uw-filming', number: '1', title: 'UW Filming' },
-      { id: 'diving', number: '2', title: 'Diving' },
-      { id: 'web-dev', number: '3', title: 'Web Development' },
-    ]
+    const sections = skillsData.sections
 
-    // ✅ Credits dynamisch – UW
-    const creditsUw = ref([
-      {
-        date: 'ongoing / since 2023',
-        title: 'Ocean Collective',
-        subtitle: 'UW & Safety',
-        link: 'https://www.instagram.com/ocean_collective_agency/',
+    // ⭐ Header-Projekt für SpecialHeader (Titel, Subtitle, 3 Bilder)
+    const project = {
+      header: {
+        title: skillsData.header?.title || 'Skills',
+        subtitle: skillsData.header?.subtitle || 'UW Filming • Diving • Web Development',
+        cta: skillsData.header?.cta || { text: 'Have Fun!' },
       },
-      { date: '11/2025', title: 'MARES', subtitle: 'UW Footage', link: 'https://www.mares.com/' },
-      {
-        date: '05/2025',
-        title: '"VERDANDI"',
-        subtitle: 'Cinematic UW Footage',
-        link: 'https://www.instagram.com/elfenholz_film/',
-      },
-    ])
+      images: [{ src: img7spain }, { src: scubaDiveNight }, { src: webDevImg }],
+    }
 
-    // ✅ Credits – Diving
-    const creditsDiving = ref([
-      {
-        date: 'ongoing basis',
-        title: 'PADI',
-        subtitle: 'Pro Member & Instructor',
-        link: 'https://www.padi.com/',
-      },
-      {
-        date: 'ongoing basis',
-        title: 'Gran Canaria Divers',
-        subtitle: 'Courses & Guiding',
-        link: 'https://www.grancanariadivers.com/',
-      },
-      {
-        date: 'ongoing / since 2023',
-        title: 'Ocean Collective',
-        subtitle: 'Safety Diver, Logistics & Underwater Operations',
-        link: 'https://www.instagram.com/ocean_collective_agency/',
-      },
-      {
-        date: '06/2024',
-        title: '"Die drei ??? und der Karpatenhund"',
-        subtitle: 'Safety Diver',
-        link: 'https://www.instagram.com/dreifragezeichen.de/',
-      },
-    ])
+    const creditsUw = ref(skillsData.uwFilming.credits)
+    const creditsDiving = ref(skillsData.diving.credits)
+    const creditsWebdev = ref(skillsData.webDev.credits)
 
-    // ✅ Credits dynamisch – UW
-    const creditsWebdev = ref([
-      {
-        date: '2025',
-        title: 'Ocean Collective',
-        subtitle: 'End-to-End Website Development',
-        link: 'https://www.instagram.com/ocean_collective_agency/',
-      },
-      { date: '2024', title: 'Gran Canaria Divers', subtitle: 'End-to-End Website Development' },
-      { date: '2023', title: 'RHM Service', subtitle: 'End-to-End Website Development' },
-      { date: '2023', title: 'IRS GmbH', subtitle: 'Frontend Development' },
-      { date: '2021-2023', title: 'Codevance', subtitle: 'Frontend Development' },
-    ])
-
-    // ✅ Sidebar Late Switch
+    // Sidebar Late Switch (wie vorher – aktuell nicht benutzt, aber behalten)
     const switchLatePx = ref(-200)
     const computeLatePx = () => {
       const vh = window.innerHeight || 800
@@ -311,114 +206,13 @@ export default {
       window.removeEventListener('resize', computeLatePx)
     })
 
-    // ✅ Zertifikate (Cards im Slider)
-    const certifications = ref([
-      {
-        title: 'NEW TEC 40',
-        date: '29-Mar-2025',
-        padi: '2503UY4186',
-        image: '/src/assets/images/padi/padi_tec_rec.jpeg',
-      },
-      {
-        title: 'Open Water Scuba Instructor',
-        date: '18-Apr-2023',
-        padi: '457679',
-        image: '/src/assets/images/padi/padi_card.jpeg',
-      },
-      { title: 'Dry Suit', date: '26-Mar-2025', padi: '2503UY4184', image: '/images/drysuit.jpg' },
-      { title: 'Deep Instructor', date: '02-May-2023', padi: '457679', image: '/images/deep.jpg' },
-      { title: 'EFR Instructor', date: '28-Apr-2023', padi: '457679', image: '/images/efr.jpg' },
-      {
-        title: 'Dive Against Debris Instructor',
-        date: '05-Aug-2024',
-        padi: '457679',
-        image: '/images/debris.jpg',
-      },
-      {
-        title: 'Wreck Instructor',
-        date: '02-May-2023',
-        padi: '457679',
-        image: '/images/wreck.jpg',
-      },
-      {
-        title: 'Night Diver Instructor',
-        date: '02-May-2023',
-        padi: '457679',
-        image: '/images/night.jpg',
-      },
-      {
-        title: 'Enriched Air Instructor',
-        date: '02-May-2023',
-        padi: '457679',
-        image: '/images/enriched.jpg',
-      },
-      {
-        title: 'Delayed Surface Marker Buoy Instructor',
-        date: '02-May-2023',
-        padi: '457679',
-        image: '/images/dsmb.jpg',
-      },
-      {
-        title: 'Peak Performance Buoyancy Instructor',
-        date: '18-Apr-2023',
-        padi: '457679',
-        image: '/images/buoyancy.jpg',
-      },
-      {
-        title: 'PADI AWARE Instructor',
-        date: '18-Apr-2023',
-        padi: '457679',
-        image: '/images/aware.jpg',
-      },
-      {
-        title: 'AWARE Coral Reef Conservation Sp Instructor',
-        date: '18-Apr-2023',
-        padi: '457679',
-        image: '/images/reef.jpg',
-      },
-      { title: 'Divemaster', date: '23-Sep-2020', padi: '457679', image: '/images/divemaster.jpg' },
-      {
-        title: 'EFR - Primary Care (CPR) & Sec Care (1st) w/ AED',
-        date: '16-Apr-2023',
-        padi: '2304UJ1753',
-        image: '/images/efr-primary.jpg',
-      },
-      {
-        title: 'EFR - CPR/First Aid/Care for Children w/ AED',
-        date: '23-Jun-2019',
-        padi: '1907EH5797',
-        image: '/images/efr-cpr.jpg',
-      },
-      {
-        title: 'Enriched Air Diver',
-        date: '22-Nov-2018',
-        padi: '1811EU2796',
-        image: '/images/enriched-diver.jpg',
-      },
-      {
-        title: 'Rescue Diver',
-        date: '21-May-2017',
-        padi: '1705EF3498',
-        image: '/images/rescue.jpg',
-      },
-      {
-        title: 'Advanced Open Water',
-        date: '19-Jun-2016',
-        padi: '1606EW9928',
-        image: '/images/aow.jpg',
-      },
-      {
-        title: 'Junior Open Water',
-        date: '31-Dec-2006',
-        padi: '0701E58701',
-        image: '/images/junior.jpg',
-      },
-    ])
+    // Zertifikate (Cards im Slider) – aus skillsData
+    const certifications = ref(skillsData.diving.certifications)
 
-    // ✅ Slider Logik (3x2 = 6 pro Seite)
     const pageSize = 6
     const currentPage = ref(0)
     const totalPages = computed(() => Math.ceil(certifications.value.length / pageSize))
+
     const pagedCertifications = computed(() => {
       const chunks = []
       for (let i = 0; i < certifications.value.length; i += pageSize) {
@@ -466,7 +260,9 @@ export default {
       goPrev,
       goNext,
       gridEl,
-      webProjects, // ← HIER FEHLTE ES!
+      webProjects,
+      skillsData,
+      project,
     }
   },
 }

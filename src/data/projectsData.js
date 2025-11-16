@@ -1,5 +1,9 @@
-// src/data/projects.js
+// src/data/projectsData.js
+// =============================================================
+//                       IMAGE IMPORTS
+// =============================================================
 
+// --- Spain Images ---
 import img1spain from '@/assets/images/spain25/emi.jpeg'
 import img2spain from '@/assets/images/spain25/elena.jpeg'
 import img3spain from '@/assets/images/spain25/P1071469.jpeg'
@@ -16,6 +20,7 @@ import img13spain from '@/assets/images/spain25/P1072954.jpeg'
 import img14spain from '@/assets/images/spain25/P1072965.jpeg'
 import img15spain from '@/assets/images/spain25/P1072998.jpeg'
 
+// --- Bretagne Images ---
 import bretagne1 from '@/assets/images/bretagne/bretagne1.jpg'
 import bretagne2 from '@/assets/images/bretagne/bretagne2.jpg'
 import bretagne3 from '@/assets/images/bretagne/bretagne3.jpg'
@@ -23,6 +28,7 @@ import bretagne4 from '@/assets/images/bretagne/bretagne4.jpg'
 import bretagne5 from '@/assets/images/bretagne/bretagne5.jpg'
 import bretagne6 from '@/assets/images/bretagne/bretagne6.jpg'
 
+// --- Web Dev Projects ---
 import gcd1 from '@/assets/images/website/gcd/gcd-desktop.png'
 import oc1 from '@/assets/images/website/oc/oc-desktop.png'
 import rhm1 from '@/assets/images/website/rhm/rhm-desktop.png'
@@ -30,10 +36,14 @@ import cv1 from '@/assets/images/website/codevance/codevance-desktop-app.png'
 import cv2 from '@/assets/images/website/codevance/codevance-desktop-website.png'
 import irs1 from '@/assets/images/website/irs/irs-desktop.png'
 import webDevImg from '@/assets/images/website/dev.png'
+
+// --- Misc Images ---
 import scubaDiveNight from '@/assets/images/night-dive.jpeg'
 import scubaNemo33 from '@/assets/images/project4.jpg'
 
-// projectsData.js
+// =============================================================
+//                       WEB PROJECTS
+// =============================================================
 
 export const webProjects = [
   {
@@ -72,13 +82,17 @@ export const webProjects = [
     url: 'https://ocean-collective.com',
   },
   {
-    id: 4,
+    id: 5,
     title: 'IRS GmbH',
     subtitle: 'Vue.js • SCSS',
     image: irs1,
     url: 'https://irs-gmbh.de/home',
   },
 ]
+
+// =============================================================
+//                          PROJECTS
+// =============================================================
 
 export const projects = [
   {
@@ -88,11 +102,11 @@ export const projects = [
     subtitle: 'With Ocean Collective',
     previewImage: img1spain,
     teaser:
-      'Documentary coverage of a citizen-science shark conservation project in the Bay of Biscay, capturing local research efforts and the unique connection between people, wildlife and the open ocean.',
+      'Documentary coverage of a citizen-science shark conservation project in the Bay of Biscay.',
     info: 'info',
     date: '07/08/09 2025',
     location: 'Bay of Biskay',
-    href: null,
+
     header: {
       title: 'Coast of Hope',
       subtitle: 'With Ocean Collective',
@@ -104,8 +118,9 @@ export const projects = [
         type: 'text',
         title: 'Info',
         content:
-          'Documentary coverage of a citizen-science shark conservation project in the Bay of Biscay, capturing local research efforts and the unique connection between people, wildlife and the open ocean.',
+          'Documentary coverage of a citizen-science shark conservation project in the Bay of Biscay.',
       },
+
       {
         type: 'features',
         title: 'Skills',
@@ -118,127 +133,50 @@ export const projects = [
           },
         ],
       },
+
       {
         type: 'youtube',
         title: 'Episode 1: Sharks in Europe',
-        content: 'Short description about what the video shows.',
-        videoId: 'I3g0ipHA644', // nur die ID, nicht die komplette URL
-
+        videoId: 'I3g0ipHA644',
         links: [
           { label: 'YouTube Channel', href: 'https://youtube.com/@oceancollective' },
           { label: 'Website', href: 'https://ocean-collective.com' },
         ],
         stats: ['Joined: 2023', '3,200+ subscribers'],
       },
+
       {
         type: 'imageGallery',
         images: [
-          {
-            src: img1spain,
-            alt: 'Emi swimming with a blue shark in open water',
-            caption: 'Emi & Blueshark in the open blue',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img2spain,
-            alt: 'Elena preparing for or descending on a coastal dive',
-            caption: 'Elena on coastal dive',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img3spain,
-            alt: 'Anna filming underwater in open blue water',
-            caption: 'Anna shooting in the open blue',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img4spain,
-            alt: 'Julian filming Lukas during a freedive tagging session',
-            caption: 'Julian capturing Lukas’ freedive tagging',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img5spain,
-            alt: 'Lukas performing freedive tagging underwater',
-            caption: 'Lukas on a freedive-tagging dive',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img6spain,
-            alt: 'A drifting salp suspended in pelagic open water',
-            caption: 'Drifting salp in the pelagic zone',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img7spain,
-            alt: 'A curious blue shark approaching closely',
-            caption: 'Curious Blueshark',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img8spain,
-            alt: 'Close-up of a blue shark with its eye half closed',
-            caption: 'Blue shark’s eye half closed',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img9spain,
-            alt: 'A curious blue shark swimming near the camera',
-            caption: 'Curious Blueshark',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img10spain,
-            alt: 'Divers waiting on the surface during chumming preparations',
-            caption: 'Waiting, chumming, enjoying',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img11spain,
-            alt: 'Emi interacting with a blue shark underwater',
-            caption: 'Emis moment with a Blueshark',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img12spain,
-            alt: 'A blue shark swimming in open water',
-            caption: 'Blueshark',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img13spain,
-            alt: 'Anna and a blue shark illuminated by warm morning sunlight',
-            caption: 'Anna with a blue shark, illuminated by the morning sun',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img14spain,
-            alt: 'A blue shark approaching through open water',
-            caption: 'Incoming blue shark',
-            creator: 'Svenja Katharina',
-          },
-          {
-            src: img15spain,
-            alt: 'Silhouette of a blue shark against bright surface light',
-            caption: 'Blue shark silhouette',
-            creator: 'Svenja Katharina',
-          },
+          { src: img1spain, alt: '', caption: '', creator: '' },
+          { src: img2spain, alt: '', caption: '', creator: '' },
+          { src: img3spain, alt: '', caption: '', creator: '' },
+          { src: img4spain, alt: '', caption: '', creator: '' },
+          { src: img5spain, alt: '', caption: '', creator: '' },
+          { src: img6spain, alt: '', caption: '', creator: '' },
+          { src: img7spain, alt: '', caption: '', creator: '' },
+          { src: img8spain, alt: '', caption: '', creator: '' },
+          { src: img9spain, alt: '', caption: '', creator: '' },
+          { src: img10spain, alt: '', caption: '', creator: '' },
+          { src: img11spain, alt: '', caption: '', creator: '' },
+          { src: img12spain, alt: '', caption: '', creator: '' },
+          { src: img13spain, alt: '', caption: '', creator: '' },
+          { src: img14spain, alt: '', caption: '', creator: '' },
+          { src: img15spain, alt: '', caption: '', creator: '' },
         ],
       },
     ],
   },
 
+  // --- PROJECT 2 ---
   {
     id: 2,
     category: 'UW Filmmaking',
     title: 'The Last Of Their Kind',
-    subtitle: '',
+    subtitle: 'With Ocean Collective',
     previewImage: bretagne1,
     teaser: 'Documentary coverage of a marine research expedition in Brittany, France.',
-    info: '',
-    date: '05/2025',
-    location: 'Brittany, France',
-    href: null,
+
     header: {
       title: 'The Last Of Their Kind',
       subtitle: 'With Ocean Collective',
@@ -250,7 +188,7 @@ export const projects = [
         type: 'text',
         title: 'Info',
         content:
-          'A documentary look at The Last of Their Kind, an expedition uniting research and freediving to study and protect porbeagle sharks in northern Brittany.',
+          'A documentary look at The Last of Their Kind, an expedition to study porbeagle sharks.',
       },
 
       {
@@ -258,38 +196,35 @@ export const projects = [
         title: 'Skills',
         features: [
           { title: 'When/Where', text: 'Mai 2025, Brittany, France' },
-          { title: 'Who', text: 'Ocean Collective with Partner DRDH' },
+          { title: 'Who', text: 'Ocean Collective with DRDH' },
           {
             title: 'What',
             text: 'Visual Storytelling For YouTube & Content Creation UW and TOPSIDE',
           },
         ],
       },
+
       {
         type: 'imageGallery',
         images: [
-          { src: bretagne1, alt: '', caption: '', creator: '' },
-          { src: bretagne2, alt: '', caption: '', creator: '' },
-          { src: bretagne3, alt: '', caption: '', creator: '' },
-          { src: bretagne4, alt: '', caption: '', creator: '' },
-          { src: bretagne5, alt: '', caption: '', creator: '' },
-          { src: bretagne6, alt: '', caption: '', creator: '' },
+          { src: bretagne1 },
+          { src: bretagne2 },
+          { src: bretagne3 },
+          { src: bretagne4 },
+          { src: bretagne5 },
+          { src: bretagne6 },
         ],
       },
     ],
   },
 
+  // --- PROJECT 3 Test ---
   {
     id: 3,
     category: 'Category',
     title: 'Title',
     subtitle: 'Subtitle',
     previewImage: bretagne1,
-    teaser: 'Documentary coverage of a marine research expedition in Brittany, France.',
-    info: 'Info',
-    date: 'date',
-    location: 'Location',
-    href: null,
 
     header: {
       title: 'Title',
@@ -298,11 +233,7 @@ export const projects = [
     },
 
     sections: [
-      {
-        type: 'text',
-        title: 'Info',
-        content: 'Content',
-      },
+      { type: 'text', title: 'Info', content: 'Content' },
       {
         type: 'features',
         title: 'Skills',
@@ -315,21 +246,22 @@ export const projects = [
       {
         type: 'imageGallery',
         images: [
-          { src: bretagne1, alt: '', caption: '', creator: '' },
-          { src: bretagne2, alt: '', caption: '', creator: '' },
-          { src: bretagne3, alt: '', caption: '', creator: '' },
-          { src: bretagne4, alt: '', caption: '', creator: '' },
-          { src: bretagne5, alt: '', caption: '', creator: '' },
-          { src: bretagne6, alt: '', caption: '', creator: '' },
+          { src: bretagne1 },
+          { src: bretagne2 },
+          { src: bretagne3 },
+          { src: bretagne4 },
+          { src: bretagne5 },
+          { src: bretagne6 },
         ],
       },
     ],
   },
 ]
 
-// ===============================
+// =============================================================
 // STACKED HOVER GALLERY DATA
-// ===============================
+// =============================================================
+
 export const galleryItems = [
   {
     key: 'film',
@@ -353,3 +285,247 @@ export const galleryItems = [
     image: webDevImg,
   },
 ]
+
+// =============================================================
+// SKILLS DATA
+// =============================================================
+
+export const skillsData = {
+  header: {
+    title: 'Skills',
+    subtitle: 'Experience & Capabilities',
+  },
+
+  sections: [
+    { id: 'uw-filming', number: '1', title: 'UW Filming' },
+    { id: 'diving', number: '2', title: 'Diving' },
+    { id: 'web-dev', number: '3', title: 'Web Development' },
+  ],
+
+  uwFilming: {
+    text: {
+      title: 'UW Filming',
+      content:
+        'Professional underwater camera operation for science, expeditions, and media productions.',
+    },
+    features: {
+      title: 'Skills',
+      features: [
+        { title: 'Camera', text: 'Panasonic S1II + Nauticam housing' },
+        { title: 'Methods', text: 'Scuba & freediving' },
+        { title: 'Experience', text: '~2000 dives' },
+        { title: 'Wildlife + Interaction', text: 'Marine species behavior knowledge' },
+        { title: 'Safety Concepts', text: 'Buddy system & procedures' },
+        { title: 'Risk Management', text: 'Currents, depth, emergencies' },
+        {
+          title: 'Fieldwork & Research',
+          text: 'Camera traps, documentation, tagging projects',
+        },
+      ],
+    },
+    credits: [
+      {
+        date: 'ongoing / since 2023',
+        title: 'Ocean Collective',
+        subtitle: 'UW & Safety',
+        link: 'https://www.instagram.com/ocean_collective_agency/',
+      },
+      { date: '11/2025', title: 'MARES', subtitle: 'UW Footage', link: 'https://www.mares.com/' },
+      {
+        date: '05/2025',
+        title: '"VERDANDI"',
+        subtitle: 'Cinematic UW Footage',
+        link: 'https://www.instagram.com/elfenholz_film/',
+      },
+    ],
+  },
+
+  diving: {
+    text: { title: 'Diving', content: 'Scuba & Apnoe' },
+    features: {
+      title: 'Diving Skills',
+      features: [
+        {
+          title: 'Training & Courses (PADI)',
+          text: 'Open Water → Divemaster • Nitrox • Deep • Wreck • Night • DSMB • PPB • AWARE',
+        },
+        {
+          title: 'Safety & Marine Operations',
+          text: 'Emergency plans, O₂, risk assessments, boat support & crew coordination',
+        },
+        {
+          title: 'UW Camera & Installations',
+          text: 'Lighting • shot planning • anchors • rig support • sensors',
+        },
+      ],
+    },
+    credits: [
+      {
+        date: 'ongoing basis',
+        title: 'PADI',
+        subtitle: 'Pro Member & Instructor',
+        link: 'https://www.padi.com/',
+      },
+      {
+        date: 'ongoing basis',
+        title: 'Gran Canaria Divers',
+        subtitle: 'Courses & Guiding',
+        link: 'https://www.grancanariadivers.com/',
+      },
+      {
+        date: 'ongoing',
+        title: 'Ocean Collective',
+        subtitle: 'Safety Diver & UW Operations',
+        link: 'https://www.instagram.com/ocean_collective_agency/',
+      },
+      {
+        date: '06/2024',
+        title: '"Die drei ??? und der Karpatenhund"',
+        subtitle: 'Safety Diver',
+        link: 'https://www.instagram.com/dreifragezeichen.de/',
+      },
+    ],
+
+    certifications: [
+      {
+        title: 'NEW TEC 40',
+        date: '29-Mar-2025',
+        padi: '2503UY4186',
+        image: '/src/assets/images/padi/padi_tec_rec.jpeg',
+      },
+      {
+        title: 'Open Water Scuba Instructor',
+        date: '18-Apr-2023',
+        padi: '457679',
+        image: '/src/assets/images/padi/padi_card.jpeg',
+      },
+      { title: 'Dry Suit', date: '26-Mar-2025', padi: '2503UY4184', image: '/images/drysuit.jpg' },
+      { title: 'Deep Instructor', date: '02-May-2023', padi: '457679', image: '/images/deep.jpg' },
+      { title: 'EFR Instructor', date: '28-Apr-2023', padi: '457679', image: '/images/efr.jpg' },
+      {
+        title: 'Dive Against Debris Instructor',
+        date: '05-Aug-2024',
+        padi: '457679',
+        image: '/images/debris.jpg',
+      },
+      {
+        title: 'Wreck Instructor',
+        date: '02-May-2023',
+        padi: '457679',
+        image: '/images/wreck.jpg',
+      },
+      {
+        title: 'Night Diver Instructor',
+        date: '02-May-2023',
+        padi: '457679',
+        image: '/images/night.jpg',
+      },
+      {
+        title: 'Enriched Air Instructor',
+        date: '02-May-2023',
+        padi: '457679',
+        image: '/images/enriched.jpg',
+      },
+      {
+        title: 'Delayed Surface Marker Buoy Instructor',
+        date: '02-May-2023',
+        padi: '457679',
+        image: '/images/dsmb.jpg',
+      },
+      {
+        title: 'Peak Performance Buoyancy Instructor',
+        date: '18-Apr-2023',
+        padi: '457679',
+        image: '/images/buoyancy.jpg',
+      },
+      {
+        title: 'PADI AWARE Instructor',
+        date: '18-Apr-2023',
+        padi: '457679',
+        image: '/images/aware.jpg',
+      },
+      {
+        title: 'AWARE Coral Reef Conservation Sp Instructor',
+        date: '18-Apr-2023',
+        padi: '457679',
+        image: '/images/reef.jpg',
+      },
+      { title: 'Divemaster', date: '23-Sep-2020', padi: '457679', image: '/images/divemaster.jpg' },
+      {
+        title: 'EFR - CPR/First Aid',
+        date: '23-Jun-2019',
+        padi: '1907EH5797',
+        image: '/images/efr-cpr.jpg',
+      },
+      {
+        title: 'Enriched Air Diver',
+        date: '22-Nov-2018',
+        padi: '1811EU2796',
+        image: '/images/enriched-diver.jpg',
+      },
+      {
+        title: 'Rescue Diver',
+        date: '21-May-2017',
+        padi: '1705EF3498',
+        image: '/images/rescue.jpg',
+      },
+      {
+        title: 'Advanced Open Water',
+        date: '19-Jun-2016',
+        padi: '1606EW9928',
+        image: '/images/aow.jpg',
+      },
+      {
+        title: 'Junior Open Water',
+        date: '31-Dec-2006',
+        padi: '0701E58701',
+        image: '/images/junior.jpg',
+      },
+    ],
+  },
+
+  webDev: {
+    text: { title: 'Web Development', content: 'Junior Software- & Webdeveloper' },
+    features: {
+      title: 'Skills',
+      features: [
+        { title: 'Frontend', text: 'HTML, CSS, JS' },
+        { title: 'Backend', text: 'PHP, Python' },
+        { title: 'Frameworks', text: 'Vue, React, Node' },
+        { title: 'PWA', text: 'Native Web Components' },
+        { title: 'CMS', text: 'Wordpress, Wix, Shopify, Elementor' },
+        { title: 'Animation', text: 'GSAP, CSS' },
+        { title: 'XR, VR', text: 'Next.js, A-FRAME' },
+      ],
+    },
+    credits: [
+      {
+        date: '2025',
+        title: 'Ocean Collective',
+        subtitle: 'End-to-End Website Development',
+        link: 'https://www.instagram.com/ocean_collective_agency/',
+      },
+      { date: '2024', title: 'Gran Canaria Divers', subtitle: 'End-to-End Website Development' },
+      { date: '2023', title: 'RHM Service', subtitle: 'End-to-End Website Development' },
+      { date: '2023', title: 'IRS GmbH', subtitle: 'Frontend Development' },
+      { date: '2021-2023', title: 'Codevance', subtitle: 'Frontend Development' },
+    ],
+  },
+}
+
+// =============================================================
+// SKILLS PAGE HEADER — used by SpecialHeader.vue
+// =============================================================
+
+export const skillsHeader = {
+  title: 'Skills',
+  subtitle: 'UW Filming • Diving • Web Development',
+  cta: { text: 'Scroll Down' },
+
+  sections: [
+    {
+      type: 'imageGallery',
+      images: [{ src: img7spain }, { src: scubaDiveNight }, { src: webDevImg }],
+    },
+  ],
+}

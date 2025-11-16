@@ -1,6 +1,6 @@
 <template>
   <header class="special-header">
-    <!-- Left Image (unchanged) -->
+    <!-- Left Image -->
     <div class="header-image left" v-if="images[0]">
       <img :src="images[0].src" alt="" />
     </div>
@@ -15,12 +15,12 @@
       </button>
     </div>
 
-    <!-- Right Image (unchanged) -->
+    <!-- Right Image -->
     <div class="header-image right" v-if="images[1]">
       <img :src="images[1].src" alt="" />
     </div>
 
-    <!-- ⭐ EXTRA FLOATING IMAGE (new!) -->
+    <!-- EXTRA FLOATING IMAGE -->
     <div class="header-image extra" v-if="images[2]" ref="imgExtra">
       <img :src="images[2].src" alt="" />
     </div>
@@ -38,16 +38,31 @@ const props = defineProps({
   project: { type: Object, required: true },
 })
 
-// Get first 3 gallery images
+/**
+ * BILDER-LOGIK:
+ * 1. Wenn project.sections vorhanden → nimm imageGallery (wie bei Projekten)
+ * 2. Sonst: wenn project.images existiert → nimm die (für Skills-Seite)
+ */
 const images = computed(() => {
-  if (!props.project.sections) return []
-  const gallery = props.project.sections.find((s) => s.type === 'imageGallery')
-  return gallery ? gallery.images.slice(0, 3) : []
+  // Fall 1: normales Projekt mit sections & imageGallery
+  if (props.project?.sections) {
+    const gallery = props.project.sections.find((s) => s.type === 'imageGallery')
+    if (gallery && Array.isArray(gallery.images)) {
+      return gallery.images.slice(0, 3)
+    }
+  }
+
+  // Fall 2: Skills-Seite – hat ein `images`-Array direkt am project
+  if (Array.isArray(props.project?.images)) {
+    return props.project.images.slice(0, 3)
+  }
+
+  return []
 })
 
-const title = computed(() => props.project.header?.title || props.project.title)
-const subtitle = computed(() => props.project.header?.subtitle || '')
-const cta = computed(() => props.project.header?.cta)
+const title = computed(() => props.project.header?.title || props.project.title || '')
+const subtitle = computed(() => props.project.header?.subtitle || props.project.subtitle || '')
+const cta = computed(() => props.project.header?.cta || props.project.cta || null)
 
 const scrollToProject = () => {
   const el = document.getElementById('project')
@@ -57,7 +72,6 @@ const scrollToProject = () => {
   window.scrollTo({ top, behavior: 'smooth' })
 }
 
-// ⭐ Only the 3rd image gets GSAP parallax
 const imgExtra = ref(null)
 
 onMounted(() => {
@@ -73,7 +87,7 @@ onMounted(() => {
         trigger: imgExtra.value,
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1.4, // smooth & elegant
+        scrub: 1.4,
       },
     },
   )
@@ -113,13 +127,12 @@ onMounted(() => {
   z-index: -1;
 }
 
-/* ⭐ NEW EXTRA FLOATING IMAGE right side */
+/* EXTRA FLOATING IMAGE right side */
 .extra img {
   width: 130px;
   height: 130px;
-
   bottom: 0;
-  right: 00px;
+  right: 0px;
   border-radius: 2px;
   opacity: 0.9;
   z-index: -2;
@@ -139,25 +152,40 @@ onMounted(() => {
   margin-bottom: 2rem;
   opacity: 0.75;
 }
-
 /* CTA Button */
 .header-cta {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.9rem 2rem;
-  border: 1px solid var(--text-color);
-  border-radius: 2px;
+
+  border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--text-color);
+
+  color: var(--accent-color);
   font: inherit;
-  transition: 0.25s ease;
+
+  transition: color 0.25s ease;
 }
-.header-cta:hover {
-  background: var(--text-color);
-  color: var(--bg-color);
+
+/* 🔥 Animated underline (wie bei deinen Links) */
+.header-cta::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: rgb(255, 111, 97);
+  transition: width 0.3s ease-in-out;
 }
+
+/* Hover: animiert Unterstrich */
+.header-cta:hover::after {
+  width: 100%;
+}
+
 .arrow {
   font-size: 1.4rem;
 }
@@ -173,7 +201,7 @@ onMounted(() => {
   }
 
   .extra {
-    display: none; /* also hide on mobile */
+    display: none;
   }
 
   .special-header {
