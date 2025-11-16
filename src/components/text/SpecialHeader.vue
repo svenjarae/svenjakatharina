@@ -38,21 +38,17 @@ const props = defineProps({
   project: { type: Object, required: true },
 })
 
-/**
- * BILDER-LOGIK:
- * 1. Wenn project.sections vorhanden → nimm imageGallery (wie bei Projekten)
- * 2. Sonst: wenn project.images existiert → nimm die (für Skills-Seite)
- */
+/* ----------------------------------------------
+   IMAGE LOGIC
+---------------------------------------------- */
 const images = computed(() => {
-  // Fall 1: normales Projekt mit sections & imageGallery
+  // Case 1: Project with sections → use imageGallery
   if (props.project?.sections) {
     const gallery = props.project.sections.find((s) => s.type === 'imageGallery')
-    if (gallery && Array.isArray(gallery.images)) {
-      return gallery.images.slice(0, 3)
-    }
+    if (gallery && gallery.images) return gallery.images.slice(0, 3)
   }
 
-  // Fall 2: Skills-Seite – hat ein `images`-Array direkt am project
+  // Case 2: Skills page → project.images is directly provided
   if (Array.isArray(props.project?.images)) {
     return props.project.images.slice(0, 3)
   }
@@ -60,10 +56,13 @@ const images = computed(() => {
   return []
 })
 
-const title = computed(() => props.project.header?.title || props.project.title || '')
-const subtitle = computed(() => props.project.header?.subtitle || props.project.subtitle || '')
-const cta = computed(() => props.project.header?.cta || props.project.cta || null)
+const title = computed(() => props.project.title || props.project.header?.title || '')
+const subtitle = computed(() => props.project.subtitle || props.project.header?.subtitle || '')
+const cta = computed(() => props.project.cta || props.project.header?.cta || null)
 
+/* ----------------------------------------------
+   SCROLL TO #project
+---------------------------------------------- */
 const scrollToProject = () => {
   const el = document.getElementById('project')
   if (!el) return
@@ -72,6 +71,9 @@ const scrollToProject = () => {
   window.scrollTo({ top, behavior: 'smooth' })
 }
 
+/* ----------------------------------------------
+   GSAP FLOATING IMAGE
+---------------------------------------------- */
 const imgExtra = ref(null)
 
 onMounted(() => {
@@ -95,15 +97,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* ============================
-   DESKTOP LAYOUT
-============================ */
 .special-header {
   width: 100%;
   padding: 8rem 2rem 2rem 2rem;
-  gap: 2rem;
   position: relative;
   text-align: center;
+  max-width: 960px;
+  margin: auto;
 }
 
 .header-image img {
@@ -114,7 +114,6 @@ onMounted(() => {
   position: absolute;
 }
 
-/* Existing floating positions (unchanged) */
 .left img {
   top: 100px;
   left: -100px;
@@ -127,7 +126,6 @@ onMounted(() => {
   z-index: -1;
 }
 
-/* EXTRA FLOATING IMAGE right side */
 .extra img {
   width: 130px;
   height: 130px;
@@ -138,50 +136,45 @@ onMounted(() => {
   z-index: -2;
 }
 
-/* Title */
 .header-title {
   font-size: clamp(3rem, 6vw, 5.5rem);
-  line-height: 1;
   font-weight: 500;
+  line-height: 1;
 }
 
-/* Subtitle */
 .header-subtitle {
   font-size: 1.2rem;
   color: var(--text-color);
   margin-bottom: 2rem;
   opacity: 0.75;
 }
-/* CTA Button */
+
+/* CTA BUTTON */
 .header-cta {
   position: relative;
   display: inline-flex;
-  align-items: center;
   gap: 0.4rem;
+  align-items: center;
+  cursor: pointer;
 
   border: none;
   background: transparent;
-  cursor: pointer;
-
   color: var(--accent-color);
   font: inherit;
-
   transition: color 0.25s ease;
 }
 
-/* 🔥 Animated underline (wie bei deinen Links) */
 .header-cta::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0%;
   height: 3px;
+  width: 0;
   background: rgb(255, 111, 97);
   transition: width 0.3s ease-in-out;
 }
 
-/* Hover: animiert Unterstrich */
 .header-cta:hover::after {
   width: 100%;
 }
@@ -191,17 +184,14 @@ onMounted(() => {
 }
 
 @media (max-width: 600px) {
-  .left img {
-    display: none;
-  }
-  .header-image img {
-    padding-top: 40px;
-    opacity: 1;
-    position: relative;
-  }
-
+  .left img,
   .extra {
     display: none;
+  }
+
+  .header-image img {
+    position: relative;
+    padding-top: 40px;
   }
 
   .special-header {
