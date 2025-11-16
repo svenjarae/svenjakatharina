@@ -29,6 +29,9 @@ import rhm1 from '@/assets/images/website/rhm/rhm-desktop.png'
 import cv1 from '@/assets/images/website/codevance/codevance-desktop-app.png'
 import cv2 from '@/assets/images/website/codevance/codevance-desktop-website.png'
 import irs1 from '@/assets/images/website/irs/irs-desktop.png'
+import webDevImg from '@/assets/images/website/dev.png'
+import scubaDiveNight from '@/assets/images/night-dive.jpeg'
+import scubaNemo33 from '@/assets/images/project4.jpg'
 
 // projectsData.js
 
@@ -333,20 +336,20 @@ export const galleryItems = [
     title: 'UW Filmmaking',
     subtitle: 'Cinematic Storytelling',
     sectionId: 'uw-filming',
-    image: '/src/assets/images/project4.jpg',
+    image: scubaNemo33,
   },
   {
     key: 'dive',
     title: 'Diving',
     subtitle: 'Scuba & Apnea',
     sectionId: 'diving',
-    image: '/src/assets/images/night-dive.jpeg',
+    image: scubaDiveNight,
   },
   {
     key: 'web',
     title: 'Web Development',
     subtitle: 'Modern & User-Friendly Websites',
     sectionId: 'web-dev',
-    image: '/src/assets/images/website/dev.png',
+    image: webDevImg,
   },
 ]
