@@ -31,34 +31,14 @@
 </template>
 
 <script>
+import { galleryItems } from '@/data/projectsData.js'
+
 export default {
   name: 'StackedHoverGallery',
   data() {
     return {
-      active: 'film',
-      items: [
-        {
-          key: 'film',
-          title: 'UW Filmmaking',
-          subtitle: 'Cinematic Storytelling',
-          sectionId: 'uw-filming',
-          image: '/src/assets/images/project4.jpg',
-        },
-        {
-          key: 'dive',
-          title: 'Diving',
-          subtitle: 'Scuba & Apnea',
-          sectionId: 'diving',
-          image: '/src/assets/images/night-dive.jpeg',
-        },
-        {
-          key: 'web',
-          title: 'Web Development',
-          subtitle: 'Modern & User-Friendly Websites',
-          sectionId: 'web-dev',
-          image: '/src/assets/images/website/dev.png',
-        },
-      ],
+      active: galleryItems[0].key, // default: first item
+      items: galleryItems,
     }
   },
 }
@@ -70,25 +50,17 @@ export default {
 ============================= */
 .gallery {
   display: grid;
-
-  /* ✅ Linke Spalte hat FIXE Breite, wird NIE gequetscht */
   grid-template-columns: 350px 1fr;
-
   align-items: center;
-
-  /* ✅ DU wolltest mehr Abstand */
   column-gap: clamp(60px, 8vw, 140px);
-
   padding: 60px 0;
-
-  /* ✅ Größerer Maxwidth, damit Titel Platz haben */
   max-width: 1200px;
   margin: auto;
   font-family: var(--primaryFont);
 }
 
 /* =============================
-   STACK (unchanged!)
+   STACK
 ============================= */
 .stack {
   position: relative;
@@ -120,7 +92,7 @@ export default {
   border-radius: 2px;
 }
 
-/* ✅ ORIGINAL STACK LOOK */
+/* ORIGINAL STACK LOOK */
 .photo-film {
   transform: rotate(-8deg) translate(-50px, -20px);
   z-index: 1;
@@ -148,8 +120,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: clamp(22px, 3vw, 40px);
-
-  /* ✅ Verhindert, dass der Titel die Spalte sprengt */
   min-width: 0;
 }
 
@@ -164,7 +134,6 @@ export default {
   color: var(--text-color);
   position: relative;
   padding-bottom: 8px;
-
   width: 100%;
 }
 
@@ -183,17 +152,11 @@ export default {
   width: 100%;
 }
 
-/* =============================
-   TITLES — responsive max size
-============================= */
+/* TITLES */
 .title {
   font-size: clamp(2rem, 4vw, 4rem);
-
-  /* ✅ NO WRAP EVER */
   white-space: nowrap;
-
   text-overflow: clip;
-
   line-height: 1.05;
 }
 
@@ -204,9 +167,7 @@ export default {
   white-space: nowrap;
 }
 
-/* =============================
-   MOBILE
-============================= */
+/* MOBILE */
 @media (max-width: 900px) {
   .gallery {
     grid-template-columns: 1fr;

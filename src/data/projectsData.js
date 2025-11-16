@@ -323,3 +323,30 @@ export const projects = [
     ],
   },
 ]
+
+// ===============================
+// STACKED HOVER GALLERY DATA
+// ===============================
+export const galleryItems = [
+  {
+    key: 'film',
+    title: 'UW Filmmaking',
+    subtitle: 'Cinematic Storytelling',
+    sectionId: 'uw-filming',
+    image: '/src/assets/images/project4.jpg',
+  },
+  {
+    key: 'dive',
+    title: 'Diving',
+    subtitle: 'Scuba & Apnea',
+    sectionId: 'diving',
+    image: '/src/assets/images/night-dive.jpeg',
+  },
+  {
+    key: 'web',
+    title: 'Web Development',
+    subtitle: 'Modern & User-Friendly Websites',
+    sectionId: 'web-dev',
+    image: '/src/assets/images/website/dev.png',
+  },
+]
