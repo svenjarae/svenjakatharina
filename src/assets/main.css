@@ -1,0 +1,57 @@
+@import './base.css';
+
+@font-face {
+  font-family: Giselle;
+  src: url('/src/assets/fonts/FHGiselle-Light.ttf');
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url('/src/assets/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+/* Standard Light Mode */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Dark Mode */
+.dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+}
+
+:root {
+  --bright: #fff;
+  --dark: #000;
+
+  --primaryFont: Poppins, serif;
+  --secondaryFont: Giselle, serif;
+  --googleFont: 'Roboto', sans-serif;
+
+  --textSize: 1rem;
+  --headlineSize: clamp(1rem, 5vw, 20rem);
+  --highlightTextSize: 4rem;
+
+  --primaryColor: hsla(160, 100%, 37%, 1);
+  --secondaryColor: rgb(76 128 163);
+
+  --highlightColor: #ff6f61;
+}
+
+#app {
+  margin: 0 auto;
+  font-weight: normal;
+  font-family: TextFont, sans-serif;
+}
+
+body {
+  //overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
