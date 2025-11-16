@@ -50,8 +50,7 @@ function computeActiveId() {
   const scrollY = window.scrollY || 0
 
   // Scroll-Marker (ein Punkt unter deinem Header)
-  const markerY =
-    scrollY + (props.offset || 0) + (props.switchEarlyPx || 0)
+  const markerY = scrollY + (props.offset || 0) + (props.switchEarlyPx || 0)
 
   // Falls du doch eine Marker-ID übergeben willst, ist das weiterhin erlaubt
   if (props.deactivateAfterId) {
@@ -109,8 +108,7 @@ function scrollToSection(id) {
   const el = elById(id)
   if (!el) return
 
-  const targetY =
-    window.scrollY + el.getBoundingClientRect().top - (props.offset || 0)
+  const targetY = window.scrollY + el.getBoundingClientRect().top - (props.offset || 0)
 
   window.history.replaceState(null, '', `#${id}`)
   window.scrollTo({ top: targetY, behavior: 'smooth' })
@@ -137,7 +135,7 @@ watch(
   async () => {
     await nextTick()
     updateActive()
-  }
+  },
 )
 </script>
 
@@ -183,5 +181,11 @@ watch(
   display: inline-block;
   letter-spacing: 3px;
   pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
 }
 </style>

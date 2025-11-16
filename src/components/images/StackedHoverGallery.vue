@@ -210,7 +210,7 @@ export default {
 @media (max-width: 900px) {
   .gallery {
     grid-template-columns: 1fr;
-    row-gap: 40px;
+    row-gap: 120px;
     column-gap: 0;
   }
 
