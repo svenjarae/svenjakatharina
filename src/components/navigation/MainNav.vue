@@ -208,6 +208,15 @@ export default {
   opacity: 0;
 }
 
+.nav-link.router-link-active {
+  color: rgb(255, 111, 97) !important;
+}
+
+.nav-link.router-link-active::after {
+  width: 100%; /* permanent underline */
+  background: rgb(255, 111, 97);
+}
+
 /* Responsive */
 @media (max-width: 920px) {
   .nav-links {
