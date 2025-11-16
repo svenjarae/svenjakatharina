@@ -1,6 +1,9 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import SkillsView from '../views/SkillsView.vue'
+import SceneView from '../views/SceneView.vue'
+import ProjectSingleView from '../views/ProjectSingleView.vue'
 
 // 👉 GSAP / ScrollTrigger importieren, damit wir beim Routen alles killen können
 import gsap from 'gsap'
@@ -53,17 +56,17 @@ const router = createRouter({
     {
       path: '/skills',
       name: 'skills',
-      component: () => import('../views/SkillsView.vue'),
+      component: SkillsView,
     },
     {
       path: '/scene',
       name: 'scene',
-      component: () => import('../views/SceneView.vue'),
+      component: SceneView,
     },
     {
       path: '/project/:id',
       name: 'ProjectSingleView',
-      component: () => import('@/views/ProjectSingleView.vue'),
+      component: ProjectSingleView,
     },
   ],
 })
