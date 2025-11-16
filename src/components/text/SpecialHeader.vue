@@ -99,7 +99,7 @@ onMounted(() => {
 <style scoped>
 .special-header {
   width: 100%;
-  padding: 8rem 2rem 2rem 2rem;
+  padding: 8rem 2rem 2rem;
   position: relative;
   text-align: center;
   max-width: 960px;
