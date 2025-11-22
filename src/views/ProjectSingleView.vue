@@ -200,7 +200,7 @@ export default {
 }
 
 .dynamic-section {
-  margin: 4rem 0;
+  margin: 6rem 0;
 }
 
 .project-nav {

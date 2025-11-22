@@ -14,7 +14,7 @@ export default {
 <style scoped>
 .section-text {
   max-width: 960px;
-  margin: 0 auto 4rem auto;
+  margin: 6rem auto 4rem auto;
   font-family: var(--primaryFont);
   display: flex;
   flex-direction: column;
@@ -24,14 +24,14 @@ export default {
 h2 {
   font-size: clamp(2rem, 4vw, 4rem);
 
-    line-height: 1.05;
+  line-height: 1.05;
   color: var(--text-color);
 }
 
 p {
   margin: 4px 0 0;
-    opacity: .7;
-    font-size: 1.1rem;
+  opacity: 0.7;
+  font-size: 1.1rem;
   color: var(--color-text);
 }
 </style>

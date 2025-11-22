@@ -1,7 +1,7 @@
 <template>
   <header class="special-header">
     <!-- Left Image -->
-    <div class="header-image left" v-if="images[0]">
+    <div class="header-image left" v-if="images[0]" ref="imgLeft">
       <img :src="images[0].src" alt="" />
     </div>
 
@@ -16,7 +16,7 @@
     </div>
 
     <!-- Right Image -->
-    <div class="header-image right" v-if="images[1]">
+    <div class="header-image right" v-if="images[1]" ref="imgRight">
       <img :src="images[1].src" alt="" />
     </div>
 
@@ -42,13 +42,11 @@ const props = defineProps({
    IMAGE LOGIC
 ---------------------------------------------- */
 const images = computed(() => {
-  // Case 1: Project with sections → use imageGallery
   if (props.project?.sections) {
     const gallery = props.project.sections.find((s) => s.type === 'imageGallery')
     if (gallery && gallery.images) return gallery.images.slice(0, 3)
   }
 
-  // Case 2: Skills page → project.images is directly provided
   if (Array.isArray(props.project?.images)) {
     return props.project.images.slice(0, 3)
   }
@@ -72,27 +70,66 @@ const scrollToProject = () => {
 }
 
 /* ----------------------------------------------
-   GSAP FLOATING IMAGE
+   GSAP FLOATING IMAGES (HORIZONTAL)
 ---------------------------------------------- */
 const imgExtra = ref(null)
+const imgLeft = ref(null)
+const imgRight = ref(null)
 
 onMounted(() => {
-  if (!imgExtra.value) return
-
-  gsap.fromTo(
-    imgExtra.value,
-    { y: -20 },
-    {
-      y: 20,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: imgExtra.value,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1.4,
+  /* EXTRA FLOATING IMAGE (horizontal drift) */
+  if (imgExtra.value) {
+    gsap.fromTo(
+      imgExtra.value,
+      { x: -10 },
+      {
+        x: 10,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: imgExtra.value,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.4,
+        },
       },
-    },
-  )
+    )
+  }
+
+  /* LEFT IMAGE HORIZONTAL */
+  if (imgLeft.value) {
+    gsap.fromTo(
+      imgLeft.value,
+      { x: -20 },
+      {
+        x: 20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: imgLeft.value,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.6,
+        },
+      },
+    )
+  }
+
+  /* RIGHT IMAGE HORIZONTAL (opposite) */
+  if (imgRight.value) {
+    gsap.fromTo(
+      imgRight.value,
+      { x: 20 },
+      {
+        x: -20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: imgRight.value,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.6,
+        },
+      },
+    )
+  }
 })
 </script>
 
@@ -114,15 +151,18 @@ onMounted(() => {
   position: absolute;
 }
 
+/* ----------------------------------------------
+   DESKTOP DEFAULT
+---------------------------------------------- */
 .left img {
-  top: 150px;
-  left: -100px;
+  top: 0;
+  left: -200px;
   z-index: -1;
 }
 
 .right img {
-  bottom: 0;
-  left: 0px;
+  bottom: -50px;
+  left: -100px;
   z-index: -1;
 }
 
@@ -136,10 +176,71 @@ onMounted(() => {
   z-index: -2;
 }
 
+/* ----------------------------------------------
+   TABLET (600px - 1024px)
+---------------------------------------------- */
+@media (max-width: 1024px) and (min-width: 600px) {
+  .left img {
+    display: none;
+  }
+
+  .right img {
+    width: 160px;
+    height: 160px;
+    left: -60px;
+    bottom: -20px;
+  }
+
+  .extra img {
+    width: 110px;
+    height: 110px;
+    right: 10px;
+  }
+}
+
+/* ----------------------------------------------
+   MOBILE (< 600px)
+---------------------------------------------- */
+@media (max-width: 600px) {
+  /* linkes & extra Bild ausblenden */
+  .left img,
+  .extra {
+    display: none !important;
+  }
+
+  /* rechtes Bild bleibt und wird schön zentriert */
+  .right img {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    opacity: 1;
+  }
+
+  .header-image img {
+    position: relative;
+    padding-top: 40px;
+  }
+
+  .special-header {
+    padding: 7rem 0 0 0;
+  }
+
+  .header-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------------------------------------------- */
 .header-title {
   font-size: clamp(3rem, 6vw, 5.5rem);
   font-weight: 500;
   line-height: 1;
+  position: relative;
+  z-index: 5;
 }
 
 .header-subtitle {
@@ -149,7 +250,6 @@ onMounted(() => {
   opacity: 0.75;
 }
 
-/* CTA BUTTON */
 .header-cta {
   position: relative;
   display: inline-flex;
@@ -181,26 +281,5 @@ onMounted(() => {
 
 .arrow {
   font-size: 1.4rem;
-}
-
-@media (max-width: 600px) {
-  .left img,
-  .extra {
-    display: none;
-  }
-
-  .header-image img {
-    position: relative;
-    padding-top: 40px;
-  }
-
-  .special-header {
-    padding: 8rem 0 0 0;
-  }
-
-  .header-cta {
-    width: 100%;
-    justify-content: center;
-  }
 }
 </style>

@@ -93,7 +93,7 @@ export default {
         scrollTrigger: {
           trigger: sectionEl.value,
           start: 'top top', // sobald gescrollt wird (Sektion am Viewportanfang)
-          end: '+=100', // nach 100px Scroll ist Animation vollständig
+          end: '+=1000', // nach 100px Scroll ist Animation vollständig
           scrub: true, // vorwärts & rückwärts synchron mit Scroll
         },
       })
@@ -102,7 +102,7 @@ export default {
       tl.to(
         logoBig.value,
         {
-          scale: 0.7,
+          scale: 1,
           opacity: 0,
           ease: 'none',
         },
@@ -159,12 +159,12 @@ export default {
 
 .logo-big {
   position: fixed;
-  bottom: 60px;
+  bottom: 30px;
   left: 60px;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   pointer-events: none;
-  z-index: -1;
+  z-index: 5;
   fill: var(--text-color);
 }
 
@@ -194,8 +194,8 @@ export default {
   position: fixed;
   bottom: 60px;
   left: 60px;
-  width: 80px;
-  height: 80px;
+  width: 0px;
+  height: 0px;
   pointer-events: none;
   z-index: -1;
   fill: var(--text-color);
