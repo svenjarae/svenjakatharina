@@ -60,7 +60,7 @@ export default {
       projects: [
         { id: 1, name: 'Coast of Hope' },
         { id: 2, name: 'The Last of Their Kind' },
-        { id: 3, name: 'Projekt 3' },
+        /*{ id: 3, name: 'Projekt 3' },*/
       ],
     }
   },
