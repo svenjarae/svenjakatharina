@@ -113,7 +113,7 @@ export default {
   height: 2px;
 
   /* ORANGE HOVER LINE */
-  background: #ff7a00; /* Change here if needed */
+  background: #ff6f61 !important;
 
   transition: width 0.3s ease;
 }
