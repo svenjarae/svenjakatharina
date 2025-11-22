@@ -219,7 +219,6 @@ export const projects = [
   },
 
   // --- PROJECT 3 Test ---
-  /*
   {
     id: 3,
     category: 'Category',
@@ -256,7 +255,7 @@ export const projects = [
         ],
       },
     ],
-  },*/
+  },
 ]
 
 // =============================================================
