@@ -13,7 +13,7 @@
     <!-- Center slider text / content -->
     <div class="center-content">
       <p class="sub">
-        Svenja Katharina – currently based in the Canary Islands. Passionate diver and underwater
+        Svenja Raetzsch – currently based in the Canary Islands. Passionate diver and underwater
         camerawoman who's happiest in the water.
       </p>
     </div>

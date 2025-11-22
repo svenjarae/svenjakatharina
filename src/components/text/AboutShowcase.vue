@@ -30,7 +30,7 @@
       <p class="col"></p>
 
       <p class="col">
-        <b>Svenja Katharina</b> – underwater camerawoman, diver & webdeveloper based in Canary
+        <b>Svenja Raetzsch</b> – underwater camerawoman, diver & webdeveloper based in Canary
         Islands. Find selected projetcs that reflect how I work.
       </p>
     </div>

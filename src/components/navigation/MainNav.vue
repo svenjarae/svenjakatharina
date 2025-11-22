@@ -26,7 +26,7 @@
       <div v-if="isMobileMenuOpen" class="mobile-overlay">
         <nav class="mobile-nav">
           <router-link to="/" class="mobile-link" @click="closeMobileMenu">
-            Svenja Katharina
+            Svenja Raetzsch
           </router-link>
           <router-link to="/skills" class="mobile-link" @click="closeMobileMenu">
             Skills
