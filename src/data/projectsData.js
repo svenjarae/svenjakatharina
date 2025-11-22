@@ -20,13 +20,27 @@ import img13spain from '@/assets/images/spain25/P1072954.jpeg'
 import img14spain from '@/assets/images/spain25/P1072965.jpeg'
 import img15spain from '@/assets/images/spain25/P1072998.jpeg'
 
-// --- Bretagne Images ---
+// --- Bretagne Images 2025 ---
+import bretagne01_2025 from '@/assets/images/bretagne25/Arthur_Svenja_Dive.jpeg'
+import bretagne02_2025 from '@/assets/images/bretagne25/citizen_science_bretagne.jpeg'
+import bretagne03_2025 from '@/assets/images/bretagne25/citizen_science_sunset.jpg'
+import bretagne04_2025 from '@/assets/images/bretagne25/Emi_diving_Seaweed.jpeg'
+import bretagne05_2025 from '@/assets/images/bretagne25/Emi_Seaweed.jpeg'
+import bretagne06_2025 from '@/assets/images/bretagne25/Emi_Splitshot_bretagne.jpeg'
+import bretagne07_2025 from '@/assets/images/bretagne25/Skipper_Paul.jpg'
+import bretagne08_2025 from '@/assets/images/bretagne25/svenjaraetzsch_dive_BRUV.jpeg'
+
+// --- Bretagne Images 2024 ---
 import bretagne1 from '@/assets/images/bretagne/bretagne1.jpg'
 import bretagne2 from '@/assets/images/bretagne/bretagne2.jpg'
 import bretagne3 from '@/assets/images/bretagne/bretagne3.jpg'
 import bretagne4 from '@/assets/images/bretagne/bretagne4.jpg'
 import bretagne5 from '@/assets/images/bretagne/bretagne5.jpg'
 import bretagne6 from '@/assets/images/bretagne/bretagne6.jpg'
+import bretagne7 from '@/assets/images/bretagne/citizen_science_bretagne.jpg'
+import bretagne8 from '@/assets/images/bretagne/Still026.jpg'
+import bretagne9 from '@/assets/images/bretagne/Still032.jpeg'
+import bretagne10 from '@/assets/images/bretagne/team.jpg'
 
 // --- Web Dev Projects ---
 import gcd1 from '@/assets/images/website/gcd/gcd-desktop.png'
@@ -148,21 +162,96 @@ export const projects = [
       {
         type: 'imageGallery',
         images: [
-          { src: img1spain, alt: '', caption: '', creator: '' },
-          { src: img2spain, alt: '', caption: '', creator: '' },
-          { src: img3spain, alt: '', caption: '', creator: '' },
-          { src: img4spain, alt: '', caption: '', creator: '' },
-          { src: img5spain, alt: '', caption: '', creator: '' },
-          { src: img6spain, alt: '', caption: '', creator: '' },
-          { src: img7spain, alt: '', caption: '', creator: '' },
-          { src: img8spain, alt: '', caption: '', creator: '' },
-          { src: img9spain, alt: '', caption: '', creator: '' },
-          { src: img10spain, alt: '', caption: '', creator: '' },
-          { src: img11spain, alt: '', caption: '', creator: '' },
-          { src: img12spain, alt: '', caption: '', creator: '' },
-          { src: img13spain, alt: '', caption: '', creator: '' },
-          { src: img14spain, alt: '', caption: '', creator: '' },
-          { src: img15spain, alt: '', caption: '', creator: '' },
+          {
+            src: img1spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img2spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img3spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img4spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img5spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img6spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img7spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img8spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img9spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img10spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img11spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: '',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img12spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img13spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img14spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: img15spain,
+            alt: 'Ocean Collective Expedition - Küste der Hoffnung',
+            caption: 'Ocean Collective Expedition - Küste der Hoffnung',
+            creator: 'Svenja Raetzsch',
+          },
         ],
       },
     ],
@@ -172,13 +261,13 @@ export const projects = [
   {
     id: 2,
     category: 'UW Filmmaking',
-    title: 'The Last Of Their Kind',
+    title: 'The Last Of Their Kind v2',
     subtitle: 'With Ocean Collective',
-    previewImage: bretagne1,
-    teaser: 'Documentary coverage of a marine research expedition in Brittany, France.',
+    previewImage: bretagne08_2025,
+    teaser: 'Documentary coverage of a marine research expedition in Brittany, France (2025).',
 
     header: {
-      title: 'The Last Of Their Kind',
+      title: 'The Last Of Their Kind v2',
       subtitle: 'With Ocean Collective',
       cta: { text: 'Have Fun!' },
     },
@@ -188,14 +277,14 @@ export const projects = [
         type: 'text',
         title: 'Info',
         content:
-          'A documentary look at The Last of Their Kind, an expedition to study porbeagle sharks.',
+          'A documentary look at The Last of Their Kind (2025), an expedition to study porbeagle sharks.',
       },
 
       {
         type: 'features',
         title: 'Skills',
         features: [
-          { title: 'When/Where', text: 'Mai 2025, Brittany, France' },
+          { title: 'When/Where', text: 'May 2025, Brittany, France' },
           { title: 'Who', text: 'Ocean Collective with DRDH' },
           {
             title: 'What',
@@ -207,51 +296,145 @@ export const projects = [
       {
         type: 'imageGallery',
         images: [
-          { src: bretagne1 },
-          { src: bretagne2 },
-          { src: bretagne3 },
-          { src: bretagne4 },
-          { src: bretagne5 },
-          { src: bretagne6 },
+          {
+            src: bretagne01_2025,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne02_2025,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne03_2025,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne04_2025,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne05_2025,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne06_2025,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
         ],
       },
     ],
   },
 
-  // --- PROJECT 3 Test ---
   {
     id: 3,
-    category: 'Category',
-    title: 'Title',
-    subtitle: 'Subtitle',
+    category: 'UW Filmmaking',
+    title: 'The Last Of Their Kind – v1',
+    subtitle: 'With Ocean Collective',
     previewImage: bretagne1,
+    teaser: 'Documentary coverage of a marine research expedition in Brittany, France (2024).',
 
     header: {
-      title: 'Title',
-      subtitle: 'Subtitle',
+      title: 'The Last Of Their Kind – v1',
+      subtitle: 'With Ocean Collective',
       cta: { text: 'Have Fun!' },
     },
 
     sections: [
-      { type: 'text', title: 'Info', content: 'Content' },
+      {
+        type: 'text',
+        title: 'Info',
+        content:
+          'A documentary look at The Last of Their Kind (2024), covering early porbeagle shark research and first expeditions.',
+      },
+
       {
         type: 'features',
         title: 'Skills',
         features: [
-          { title: 'When/Where', text: 'Text' },
-          { title: 'Who', text: 'Text' },
-          { title: 'What', text: 'Text' },
+          { title: 'When/Where', text: 'May 2024, Brittany, France' },
+          { title: 'Who', text: 'Ocean Collective with DRDH' },
+          {
+            title: 'What',
+            text: 'Visual Storytelling + Citizen Science documentation',
+          },
         ],
       },
+
       {
         type: 'imageGallery',
         images: [
-          { src: bretagne1 },
-          { src: bretagne2 },
-          { src: bretagne3 },
-          { src: bretagne4 },
-          { src: bretagne5 },
-          { src: bretagne6 },
+          {
+            src: bretagne1,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Lennart Vossgätter',
+          },
+          {
+            src: bretagne2,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Lennart Vossgätter',
+          },
+          {
+            src: bretagne3,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Lennart Rossenfeld',
+          },
+          {
+            src: bretagne4,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Lennart Rossenfeld',
+          },
+          {
+            src: bretagne5,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Lennart Rossenfeld',
+          },
+          {
+            src: bretagne6,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Lennart Vossgätter',
+          },
+          {
+            src: bretagne7,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne8,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne9,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne10,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
         ],
       },
     ],

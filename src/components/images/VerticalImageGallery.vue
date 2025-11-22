@@ -41,21 +41,39 @@ function shuffle(array) {
 export default {
   name: 'VerticalImageGallery',
 
+  data() {
+    return {
+      col1Pos: 0,
+      col2Pos: 0,
+      col3Pos: 0,
+
+      lastScrollY: 0,
+      lastTimestamp: null,
+
+      // wie weit die Spalten maximal rauf/runter verschoben werden dürfen
+      maxOffset: 400,
+    }
+  },
+
   computed: {
-    // Collect all images from all projects
+    // sammelt alle Bilder aus imageGallery-Sections, aber nur mit gültigem src
     allImages() {
       const out = []
       projects.forEach((p) => {
         p.sections?.forEach((s) => {
           if (s.type === 'imageGallery') {
-            s.images.forEach((img) => out.push(img.src))
+            s.images?.forEach((img) => {
+              if (img && img.src && typeof img.src === 'string') {
+                out.push(img.src)
+              }
+            })
           }
         })
       })
       return out
     },
 
-    // 3 completely different randomized lists
+    // 3 unterschiedlich geshuffelte Listen
     col1Images() {
       return shuffle(this.allImages)
     },
@@ -66,64 +84,51 @@ export default {
       return shuffle(this.allImages)
     },
 
-    // Looping lists
+    // genug Bilder, damit jede Spalte “voll” wirkt
     col1Loop() {
       const out = []
-      while (out.length < 60) out.push(...this.col1Images)
+      while (out.length < 40) out.push(...this.col1Images)
       return out
     },
     col2Loop() {
       const out = []
-      while (out.length < 60) out.push(...this.col2Images)
+      while (out.length < 40) out.push(...this.col2Images)
       return out
     },
     col3Loop() {
       const out = []
-      while (out.length < 60) out.push(...this.col3Images)
+      while (out.length < 40) out.push(...this.col3Images)
       return out
     },
   },
 
-  data() {
-    return {
-      col1Pos: 0,
-      col2Pos: 0,
-      col3Pos: 0,
-
-      lastScrollY: 0,
-      lastTimestamp: null,
-    }
-  },
-
   mounted() {
+    // kleine Kontrolle – kannst du auch wieder rausnehmen
+    // console.log('Loaded gallery images:', this.allImages.length)
     requestAnimationFrame(this.updateLoop)
   },
 
   methods: {
+    clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value))
+    },
+
     updateLoop(timestamp) {
       if (!this.lastTimestamp) this.lastTimestamp = timestamp
-      const delta = timestamp - this.lastTimestamp
-      this.lastTimestamp = timestamp
 
       const scrollDelta = window.scrollY - this.lastScrollY
       this.lastScrollY = window.scrollY
 
-      // Move only on scroll
+      // Bewegung nur bei Scroll
       if (Math.abs(scrollDelta) > 0.2) {
         const s = scrollDelta * 0.08
 
-        this.col1Pos -= s // down
-        this.col2Pos += s * 1.2 // up
-        this.col3Pos -= s * 0.9 // down
+        // down / up / down – aber NIE so weit,
+        // dass die komplette Spalte aus dem Sichtbereich verschwindet
+        this.col1Pos = this.clamp(this.col1Pos - s, -this.maxOffset, this.maxOffset)
+        this.col2Pos = this.clamp(this.col2Pos + s * 1.2, -this.maxOffset, this.maxOffset)
+        this.col3Pos = this.clamp(this.col3Pos - s * 0.9, -this.maxOffset, this.maxOffset)
       }
-
-      // seamless loop
-      const loopHeight = -3000
-      const wrap = (v) => ((v - loopHeight) % -loopHeight) + loopHeight
-
-      this.col1Pos = wrap(this.col1Pos)
-      this.col2Pos = wrap(this.col2Pos)
-      this.col3Pos = wrap(this.col3Pos)
 
       requestAnimationFrame(this.updateLoop)
     },
@@ -142,8 +147,21 @@ export default {
   pointer-events: none;
   overflow: hidden;
 
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+  /* etwas softere Maske, aber du kannst sie auch komplett rausnehmen */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .columns {
