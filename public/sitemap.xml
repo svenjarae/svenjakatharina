@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+ <!-- Home -->
+  <url>
+    <loc>https://svenjaraetzsch.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+ <!-- Skills -->
+  <url>
+    <loc>https://svenjaraetzsch.com/skills</loc>
+  </url>
+
+   <!-- Project 1 -->
+  <url>
+    <loc>https://svenjaraetzsch.com/project/1</loc>
+  </url>
+
+  <!-- Project 2 -->
+  <url>
+    <loc>https://svenjaraetzsch.com/project/2</loc>
+  </url>
+
+</urlset>
