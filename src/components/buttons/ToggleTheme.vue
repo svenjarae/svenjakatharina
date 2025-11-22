@@ -23,7 +23,8 @@ export default {
     }
   },
   mounted() {
-    this.isOn = document.documentElement.classList.contains('dark')
+    this.isOn = true
+    document.documentElement.classList.add('dark')
   },
   methods: {
     toggleTheme() {
