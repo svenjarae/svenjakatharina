@@ -139,7 +139,6 @@ export default {
 .rows {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .row {
@@ -150,14 +149,12 @@ export default {
 .row-inner {
   display: flex;
   flex-direction: row;
-  gap: 10px;
 }
 
 .row-inner img {
   height: 120px;
   width: auto;
   object-fit: cover;
-  border-radius: 4px;
 }
 
 /* MOBILE: slightly bigger images */

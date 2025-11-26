@@ -25,6 +25,9 @@
       <StackedHoverGallery />
     </section>
 
+    <!-- Vertical Image Gallery (AUTOMATISCH AUS PROJECTS DATA) -->
+    <HorizontalImageGallery :images="galleryImages" />
+
     <!-- Projects -->
     <section id="projects" class="section">
       <div class="innerContainer">
@@ -60,6 +63,7 @@ import AboutShowcase from '@/components/text/AboutShowcase.vue'
 import SectionCta from '@/components/sections/SectionCta.vue'
 import FullWidthSlider from '@/components/slider/FullWidthSlider.vue'
 import VerticalImageGallery from '@/components/images/VerticalImageGallery.vue'
+import HorizontalImageGallery from '@/components/images/HorizontalImageGallery.vue'
 import { projects } from '@/data/projectsData.js'
 
 export default {
@@ -74,6 +78,7 @@ export default {
     SectionCta,
     FullWidthSlider,
     VerticalImageGallery,
+    HorizontalImageGallery,
   },
 
   data() {
