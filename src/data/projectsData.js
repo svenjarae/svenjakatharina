@@ -26,7 +26,8 @@ import bretagne02_2025 from '@/assets/images/bretagne25/citizen_science_bretagne
 import bretagne03_2025 from '@/assets/images/bretagne25/citizen_science_sunset.jpg'
 import bretagne04_2025 from '@/assets/images/bretagne25/Emi_diving_Seaweed.jpeg'
 import bretagne05_2025 from '@/assets/images/bretagne25/Emi_Seaweed.jpeg'
-import bretagne06_2025 from '@/assets/images/bretagne25/Emi_Splitshot_bretagne.jpeg'
+import bretagne06_2025 from '@/assets/images/bretagne25/Emi_Splitshot_Bretagne.jpeg'
+
 import bretagne07_2025 from '@/assets/images/bretagne25/Skipper_Paul.jpg'
 import bretagne08_2025 from '@/assets/images/bretagne25/svenjaraetzsch_dive_BRUV.jpeg'
 
@@ -328,6 +329,12 @@ export const projects = [
           },
           {
             src: bretagne06_2025,
+            alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
+            creator: 'Svenja Raetzsch',
+          },
+          {
+            src: bretagne07_2025,
             alt: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
             caption: 'Ocean Collective Expedition - Die Letzten Ihrer Art',
             creator: 'Svenja Raetzsch',
