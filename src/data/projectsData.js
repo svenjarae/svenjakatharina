@@ -94,7 +94,7 @@ export const webProjects = [
     title: 'Ocean Collective',
     subtitle: 'Wordpress • CMS • Shop',
     image: oc1,
-    url: 'https://ocean-collective.com',
+    url: 'https://ocean-collective.de',
   },
   {
     id: 5,
@@ -155,7 +155,7 @@ export const projects = [
         videoId: 'I3g0ipHA644',
         links: [
           { label: 'YouTube Channel', href: 'https://youtube.com/@oceancollective' },
-          { label: 'Website', href: 'https://ocean-collective.com' },
+          { label: 'Website', href: 'https://ocean-collective.de' },
         ],
         stats: ['Joined: 2023', '3,200+ subscribers'],
       },
