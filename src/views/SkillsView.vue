@@ -1,5 +1,6 @@
 <template>
   <main class="expertise">
+    <!-- optionaler Anchor (wird nicht mehr als Scroll-Ziel benutzt) -->
     <div id="project"></div>
 
     <SideBar
@@ -11,7 +12,7 @@
     />
 
     <!-- Special Header (Fixed) -->
-    <SpecialHeader :project="project" />
+    <SpecialHeader :project="project" scrollTargetId="uw-filming" :scrollOffset="80" />
 
     <!-- SECTION 1 -->
     <section id="uw-filming" class="section project">
@@ -60,8 +61,13 @@
             :disabled="currentPage === 0"
             @click="goPrev"
           >
-            <span class="see-more__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+            <span class="see-more__icon left">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                width="24"
+                viewBox="0 -960 960 960"
+              >
                 <path d="M560-240l-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
               </svg>
             </span>
@@ -76,7 +82,12 @@
           >
             <span class="see-more__text">Weiter</span>
             <span class="see-more__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24"
+                width="24"
+                viewBox="0 -960 960 960"
+              >
                 <path d="M560-240l-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
               </svg>
             </span>
@@ -141,19 +152,25 @@ export default {
 
   setup() {
     const sections = skillsData.sections
+
     const creditsUw = ref(skillsData.uwFilming.credits)
     const creditsDiving = ref(skillsData.diving.credits)
     const creditsWebdev = ref(skillsData.webDev.credits)
 
-    const certifications = ref(skillsData.diving.certifications)
+    const certifications = ref(skillsData.diving.certifications || [])
     const pageSize = 6
     const currentPage = ref(0)
-    const totalPages = computed(() => Math.ceil(certifications.value.length / pageSize))
+    const totalPages = computed(() =>
+      Math.max(1, Math.ceil(certifications.value.length / pageSize)),
+    )
 
     const pagedCertifications = computed(() => {
       const out = []
-      for (let i = 0; i < certifications.value.length; i += pageSize)
+      for (let i = 0; i < certifications.value.length; i += pageSize) {
         out.push(certifications.value.slice(i, i + pageSize))
+      }
+      // damit dein Slider nicht “leer” aussieht, falls keine items:
+      if (out.length === 0) out.push([])
       return out
     })
 
@@ -180,6 +197,17 @@ export default {
     onMounted(() => document.addEventListener('keydown', onKey))
     onBeforeUnmount(() => document.removeEventListener('keydown', onKey))
 
+    // ✅ Scroll Down: immer auf die erste Section aus skillsData.sections
+    const scrollToFirstSection = () => {
+      const firstId = sections?.[0]?.id
+      if (!firstId) return
+
+      const el = document.getElementById(firstId)
+      if (!el) return
+
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+
     return {
       sections,
       creditsUw,
@@ -194,16 +222,19 @@ export default {
       gridEl,
       webProjects,
       skillsData,
-
-      /** FIXED: use correct project!!! */
       project: skillsHeader,
+
+      scrollToFirstSection,
     }
   },
 }
 </script>
 
 <style scoped>
-/* Dein komplettes CSS bleibt unverändert */
+/* Dein komplettes CSS bleibt unverändert – ich ergänze nur 2 Dinge:
+   1) Icons sicher sichtbar (viewBox ist im Template, fill über currentColor)
+   2) left rotate */
+
 .web-grid {
   display: flex;
   flex-wrap: wrap;
@@ -217,7 +248,7 @@ export default {
 .section {
   min-height: 100vh;
   padding: 60px;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 80px; /* wichtig für fixed header */
   padding-bottom: 20vh;
 }
 
@@ -330,16 +361,13 @@ export default {
   transition: transform 0.25s ease;
 }
 
+/* ✅ Icons: immer sichtbar (erbt Button-Farbe) */
 .see-more__icon svg {
-  fill: var(--text-color);
+  fill: currentColor;
 }
-.see-more__svg {
-  transition: transform 0.25s ease;
-}
-.see-more__svg--right {
-  transform: rotate(0deg);
-}
-.see-more__svg--left {
+
+/* ✅ left Pfeil drehen */
+.left svg {
   transform: rotate(180deg);
 }
 

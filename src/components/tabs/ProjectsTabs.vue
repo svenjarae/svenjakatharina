@@ -1,7 +1,6 @@
 <template>
   <section class="projects-tabs" role="tablist" aria-label="Select Projects">
     <article v-for="(p, i) in list" :key="p.id || i" class="tab">
-
       <!-- Header -->
       <button
         class="tab__header"
@@ -28,19 +27,15 @@
         @leave="leave"
         @after-leave="afterLeave"
       >
-        <div
-          v-show="isOpen(i)"
-          class="tab__panel-wrap"
-          role="tabpanel"
-          :id="`panel-${uid}-${i}`"
-        >
+        <div v-show="isOpen(i)" class="tab__panel-wrap" role="tabpanel" :id="`panel-${uid}-${i}`">
           <div class="tab__panel">
             <slot name="panel" :project="p" :index="i">
               <div class="placeholder"><p>No panel content provided.</p></div>
             </slot>
 
             <div class="buttonContainer">
-              <component style="cursor: pointer;"
+              <component
+                style="cursor: pointer"
                 v-if="resolveTo(p)"
                 :is="isExternal(resolveTo(p)) ? 'a' : RouterLink"
                 :href="isExternal(resolveTo(p)) ? resolveTo(p) : undefined"
@@ -53,8 +48,13 @@
               >
                 <span class="project-link__text">See more</span>
                 <span class="project-link__icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
-                    viewBox="0 -960 960 960" fill="currentColor">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    width="24"
+                    viewBox="0 -960 960 960"
+                    fill="currentColor"
+                  >
                     <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z" />
                   </svg>
                 </span>
@@ -66,7 +66,6 @@
 
       <!-- Divider -->
       <div class="tab__divider" role="separator" aria-hidden="true"></div>
-
     </article>
   </section>
 </template>
@@ -92,57 +91,63 @@ export default {
         title: 'Mobula Bycatch Study',
         location: 'Gulf Islands, BCS, Mexico',
         href: '/project/5',
-        category: 'Research'
+        category: 'Research',
       },
     ]
 
-    const list = computed(() => props.projects.length ? props.projects : fallback)
+    const list = computed(() => (props.projects.length ? props.projects : fallback))
 
     const openIndex = ref(null)
-    const isOpen = i => openIndex.value === i
-    const toggle = i => openIndex.value = isOpen(i) ? null : i
+    const isOpen = (i) => openIndex.value === i
+    const toggle = (i) => (openIndex.value = isOpen(i) ? null : i)
 
-    watch(list, () => openIndex.value = null)
+    watch(list, () => (openIndex.value = null))
 
-    const beforeEnter = el => { el.style.height = '0'; el.style.overflow = 'hidden' }
-    const enter = el => {
+    const beforeEnter = (el) => {
+      el.style.height = '0'
+      el.style.overflow = 'hidden'
+    }
+    const enter = (el) => {
       el.style.transition = 'height 320ms ease'
       el.style.height = el.scrollHeight + 'px'
     }
-    const afterEnter = el => {
+    const afterEnter = (el) => {
       el.style.height = 'auto'
       el.style.overflow = ''
     }
-    const beforeLeave = el => {
+    const beforeLeave = (el) => {
       el.style.height = el.scrollHeight + 'px'
       el.style.overflow = 'hidden'
     }
-    const leave = el => {
+    const leave = (el) => {
       el.style.transition = 'height 260ms ease'
       el.style.height = '0'
     }
-    const afterLeave = el => {
+    const afterLeave = (el) => {
       el.style.overflow = ''
       el.style.transition = ''
     }
 
     const uid = Math.random().toString(36).slice(2)
 
-    const isExternal = to => typeof to === 'string' && /^https?:\/\//i.test(to)
-    const resolveTo = p =>
-      p?.href ? p.href :
-      p?.id ? { name: 'ProjectSingleView', params: { id: p.id }} : null
+    const isExternal = (to) => typeof to === 'string' && /^https?:\/\//i.test(to)
+    const resolveTo = (p) =>
+      p?.href ? p.href : p?.id ? { name: 'ProjectSingleView', params: { id: p.id } } : null
 
     return {
       list,
       isOpen,
       toggle,
-      beforeEnter, enter, afterEnter,
-      beforeLeave, leave, afterLeave,
+      beforeEnter,
+      enter,
+      afterEnter,
+      beforeLeave,
+      leave,
+      afterLeave,
       uid,
       resolveTo,
       isExternal,
-      RouterLink
+      RouterLink,
     }
   },
 }
@@ -193,10 +198,15 @@ export default {
 .tab__chev {
   transition: transform 200ms ease;
 }
-.tab__chev.open { transform: rotate(180deg); }
+.tab__chev.open {
+  transform: rotate(180deg);
+}
 
 /* Panel */
-.tab__panel { padding: 1rem 30px; text-align: left; }
+.tab__panel {
+  padding: 1rem 30px;
+  text-align: left;
+}
 
 /* --- Neuer Hover-Stil (wie features-grid) --- */
 .tab__divider {
@@ -238,7 +248,7 @@ export default {
 
 /* Hover oder geöffnet */
 .tab:hover .tab__divider::after,
-.tab__header[aria-expanded="true"] ~ .tab__divider::after {
+.tab__header[aria-expanded='true'] ~ .tab__divider::after {
   transform: scaleX(1);
 }
 
@@ -277,10 +287,13 @@ export default {
   background: #ff6f61;
   transition: width 0.3s;
 }
-.project-link:hover::after { width: 100%; }
+.project-link:hover::after {
+  width: 100%;
+}
 
 .project-link__icon {
   transition: transform 0.3s ease;
+  display: flex;
 }
 .project-link:hover .project-link__icon {
   transform: translateX(5px);

@@ -262,13 +262,16 @@ export const projects = [
   {
     id: 2,
     category: 'UW Filmmaking',
-    title: 'The Last Of Their Kind v2',
+    title: 'The Last Of Their Kind',
     subtitle: 'With Ocean Collective',
     previewImage: bretagne08_2025,
     teaser: 'Documentary coverage of a marine research expedition in Brittany, France (2025).',
+    info: '',
+    date: '05/2025',
+    location: 'Brittany - France',
 
     header: {
-      title: 'The Last Of Their Kind v2',
+      title: 'The Last Of Their Kind',
       subtitle: 'With Ocean Collective',
       cta: { text: 'Have Fun!' },
     },
@@ -276,7 +279,7 @@ export const projects = [
     sections: [
       {
         type: 'text',
-        title: 'Info',
+        title: '',
         content:
           'A documentary look at The Last of Their Kind (2025), an expedition to study porbeagle sharks.',
       },
@@ -347,13 +350,16 @@ export const projects = [
   {
     id: 3,
     category: 'UW Filmmaking',
-    title: 'The Last Of Their Kind – v1',
+    title: 'The Last Of Their Kind',
     subtitle: 'With Ocean Collective',
     previewImage: bretagne1,
     teaser: 'Documentary coverage of a marine research expedition in Brittany, France (2024).',
+    info: '',
+    date: '09/2024',
+    location: 'Brittany - France',
 
     header: {
-      title: 'The Last Of Their Kind – v1',
+      title: 'The Last Of Their Kind',
       subtitle: 'With Ocean Collective',
       cta: { text: 'Have Fun!' },
     },

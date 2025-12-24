@@ -36,6 +36,18 @@ gsap.registerPlugin(ScrollTrigger)
 
 const props = defineProps({
   project: { type: Object, required: true },
+
+  /**
+   * ✅ NEW:
+   * Optional id to scroll to when CTA is clicked.
+   * Example for SkillsView: "uw-filming"
+   */
+  scrollTargetId: { type: String, required: false, default: '' },
+
+  /**
+   * Optional offset for fixed header etc.
+   */
+  scrollOffset: { type: Number, required: false, default: 80 },
 })
 
 /* ----------------------------------------------
@@ -59,13 +71,21 @@ const subtitle = computed(() => props.project.subtitle || props.project.header?.
 const cta = computed(() => props.project.cta || props.project.header?.cta || null)
 
 /* ----------------------------------------------
-   SCROLL TO #project
+   ✅ SCROLL (fixed)
+   - prefer scrollTargetId
+   - fallback to "uw-filming" (Skills first section)
+   - fallback to "project"
 ---------------------------------------------- */
 const scrollToProject = () => {
-  const el = document.getElementById('project')
+  const targetId = props.scrollTargetId || 'uw-filming' || 'project'
+  const el =
+    document.getElementById(targetId) ||
+    document.getElementById('uw-filming') ||
+    document.getElementById('project')
+
   if (!el) return
-  const offset = 80
-  const top = el.getBoundingClientRect().top + window.scrollY - offset
+
+  const top = el.getBoundingClientRect().top + window.scrollY - props.scrollOffset
   window.scrollTo({ top, behavior: 'smooth' })
 }
 
@@ -229,7 +249,6 @@ onMounted(() => {
   }
 
   .header-cta {
-    width: 100%;
     justify-content: center;
   }
 }
