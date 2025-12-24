@@ -14,7 +14,7 @@
     <SpecialHeader :project="project" />
 
     <!-- SECTION 1 -->
-    <section id="uw-filming project" class="section">
+    <section id="uw-filming" class="section project">
       <SectionText :section="skillsData.uwFilming.text" />
       <div class="container">
         <SectionFeatures :section="skillsData.uwFilming.features" />
