@@ -42,7 +42,6 @@
                 <h4>{{ project.subtitle }}</h4>
                 <h2>{{ project.title }}</h2>
                 <p>{{ project.teaser }}</p>
-                <p class="info">{{ project.info }}</p>
               </div>
             </div>
           </template>

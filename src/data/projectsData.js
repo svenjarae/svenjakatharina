@@ -266,7 +266,7 @@ export const projects = [
     subtitle: 'With Ocean Collective',
     previewImage: bretagne08_2025,
     teaser: 'Documentary coverage of a marine research expedition in Brittany, France (2025).',
-    info: '',
+    info: 'Info',
     date: '05/2025',
     location: 'Brittany - France',
 
@@ -354,7 +354,7 @@ export const projects = [
     subtitle: 'With Ocean Collective',
     previewImage: bretagne1,
     teaser: 'Documentary coverage of a marine research expedition in Brittany, France (2024).',
-    info: '',
+    info: 'Info',
     date: '09/2024',
     location: 'Brittany - France',
 
